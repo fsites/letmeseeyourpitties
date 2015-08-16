@@ -1,4 +1,4 @@
-angular.module('instagramApp', [])
+angular.module('instagramApp', ['infinite-scroll'])
 	.controller('MyCtrl', function($scope, $http) {
 
 		//Executes on Submit click
@@ -9,7 +9,7 @@ angular.module('instagramApp', [])
 			//PARAMETERS
 			var config = {
 				'client_id': 'fe58bbb1a5724d1395b66b3f3728d11c',
-				'count': 30,
+				'count': 20,
 				'callback': 'JSON_CALLBACK'
 			};
 
@@ -20,14 +20,10 @@ angular.module('instagramApp', [])
 			 	params: config,
 			})
 			.success(function(result) {
-
 				$scope.images = result.data;
-				$scope.numRes = $scope.images.length;
-				$scope.feedback = true;
-				console.log($scope.numRes);
+				console.log("success");
 			})
 			.error(function() {
-				$scope.errorMessage = true;
 				console.log("request failed");
 			});
 
