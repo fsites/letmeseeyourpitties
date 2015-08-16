@@ -1,4 +1,41 @@
-/*TEST CODE DELETE ME*/
-html {
-	background-color: red;
+body {
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
+	font-family: "Lucida Sans Unicode";
+}
+
+#logo {
+	display: block;
+	width: 80%;
+	max-width: 400px;
+	margin: 20px auto 0px auto;
+	border-bottom: 2px solid black;
+}
+
+.input {
+	text-align: center;
+	width: 80%;
+	display: block;
+	margin: 20px auto;
+}
+
+#input-box {
+	width: 150px;
+}
+
+#submit {
+	width: 60px;
+	height: 20px;
+	border-radius: 5px;
+	color: firebrick;
+}
+
+#submit:hover {
+	border: 2px solid firebrick;
+	cursor: pointer;
+}
+
+#feedback {
+	margin-top: -10px;
 }
