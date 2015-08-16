@@ -5,12 +5,23 @@ body {
 	font-family: "Lucida Sans Unicode";
 }
 
-#logo {
+/* CLICK TO LOAD */
+
+#click {
+	text-align: center;
+}
+
+#clicktext {
+	font-size: 18px;
+	margin: 40px auto -6px auto;
+}
+
+#loadimage {
 	display: block;
-	width: 80%;
-	max-width: 400px;
-	margin: 20px auto 0px auto;
-	border-bottom: 2px solid black;
+	height: 200px;
+	width: 200px;
+	margin: 0px auto 0px auto;
+	border-radius: 10px;
 }
 
 .input {

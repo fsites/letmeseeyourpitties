@@ -11,14 +11,17 @@
 </head>
 <body ng-controller="MyCtrl">
 
-	<!-- LOGO -->
-	<img src="logo.png" id="logo">
+	<!-- Click to Load -->
+	<div id="click">
+		<h4 ng-click="onSubmit()" id="clicktext">Click me to see pitties!</h4>
+		<img ng-click="onSubmit()" src="images/edthepit.jpg" id="loadimage">
+	</div>
 
 	<!-- USER INPUT -->
-	<form class="input" ng-submit="onSubmit()">
+<!-- 	<form class="input" ng-submit="onSubmit()">
 		<input id="input-box" type="text" ng-model="userInput" placeholder="What do you want to see?"required>
 		<input id="submit" type="submit" value="Submit" ng-click="show='feedback'">
-	</form>
+	</form> -->
 
 	<!-- FEEDBACK AFTER SUBMIT -->
 	<p ng-show="feedback" class="input" id="feedback">We found {{ numRes }} results for {{ displayText }}.</p>
