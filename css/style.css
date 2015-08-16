@@ -6,24 +6,23 @@ body {
 }
 
 /* CLICK TO LOAD */
-
 #click {
 	text-align: center;
 }
 
-.clickarea:hover {
+.click-area:hover {
 	cursor: pointer;
 }
 
-#clicktext {
+#click-text {
 	font-size: 18px;
 	margin: 40px auto -6px auto;
 }
 
-#loadimage {
+#load-image {
 	display: block;
-	height: 200px;
-	width: 200px;
-	margin: 0px auto 0px auto;
+	height: 400px;
+	width: 400px;
+	margin: 0px auto 20px auto;
 	border-radius: 10px;
 }
