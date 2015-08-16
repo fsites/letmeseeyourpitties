@@ -1,6 +1,7 @@
 angular.module('instagramApp', ['infinite-scroll'])
 	.controller('MyCtrl', function($scope, $http) {
 
+		$scope.subStatus = false;
 		//Executes on Submit click
 		$scope.onSubmit = function() {
 
@@ -9,7 +10,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			//PARAMETERS
 			var config = {
 				'client_id': 'fe58bbb1a5724d1395b66b3f3728d11c',
-				'count': 20,
+				'count': 30,
 				'callback': 'JSON_CALLBACK'
 			};
 
@@ -21,14 +22,22 @@ angular.module('instagramApp', ['infinite-scroll'])
 			})
 			.success(function(result) {
 				$scope.images = result.data;
-				console.log("success");
+				$scope.subStatus = true;
+				console.log("Request success.");
 			})
 			.error(function() {
-				console.log("request failed");
+				console.log("request failed.");
 			});
-
 		};
 
+		$scope.onScroll = function() {
+			if ($scope.subStatus = false) {
+					console.log("no auto scroll")
+				};
+			else {
+				console.log("Auto scroll success.");
+			};
+		}
 	});
 
 

@@ -17,12 +17,12 @@
 	<div id="main-content"
 		<!-- Click to Load -->
 		<div id="click">
-			<h4 ng-click="onSubmit()" class="click-area" id="click-text">Click me to see pitties!</h4>
+			<h4 ng-click="onSubmit()" class="click-area" id="click-text">Click me to see some pitties!</h4>
 			<img ng-click="onSubmit()" src="images/edthepit.jpg" class="click-area" id="load-image">
 		</div>
 
 		<!-- IMAGES -->
-		<div id="images" infinite-scroll='onSubmit()' infinite-scroll-distance='2'>
+		<div id="images" infinite-scroll='onScroll()' infinite-scroll-distance='2'>
 			<div ng-repeat="image in images">
 				<a href='{{image.link}}' target="_blank"><img ng-src='{{image.images.low_resolution.url}}'/></a>
 			</div>
