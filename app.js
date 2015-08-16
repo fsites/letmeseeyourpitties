@@ -4,7 +4,7 @@ angular.module('instagramApp', [])
 		//Executes on Submit click
 		$scope.onSubmit = function() {
 
-			var url = 'https://api.instagram.com/v1/tags/' + $scope.userInput + '/media/recent';
+			var url = 'https://api.instagram.com/v1/tags/' + 'pitbullsofinstagram' + '/media/recent';
 
 			//PARAMETERS
 			var config = {
@@ -21,12 +21,9 @@ angular.module('instagramApp', [])
 			})
 			.success(function(result) {
 
-				//MAKE IF ELSE STATEMENT, IF RESULTS = 0, GIVE FEEDBACK
-				$scope.displayText = $scope.userInput;
 				$scope.images = result.data;
 				$scope.numRes = $scope.images.length;
 				$scope.feedback = true;
-				$scope.userInput = "";
 				console.log($scope.numRes);
 			})
 			.error(function() {

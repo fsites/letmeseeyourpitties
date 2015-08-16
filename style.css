@@ -11,6 +11,10 @@ body {
 	text-align: center;
 }
 
+.clickarea:hover {
+	cursor: pointer;
+}
+
 #clicktext {
 	font-size: 18px;
 	margin: 40px auto -6px auto;
@@ -22,31 +26,4 @@ body {
 	width: 200px;
 	margin: 0px auto 0px auto;
 	border-radius: 10px;
-}
-
-.input {
-	text-align: center;
-	width: 80%;
-	display: block;
-	margin: 20px auto;
-}
-
-#input-box {
-	width: 150px;
-}
-
-#submit {
-	width: 60px;
-	height: 20px;
-	border-radius: 5px;
-	color: firebrick;
-}
-
-#submit:hover {
-	border: 2px solid firebrick;
-	cursor: pointer;
-}
-
-#feedback {
-	margin-top: -10px;
 }

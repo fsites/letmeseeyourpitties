@@ -13,8 +13,8 @@
 
 	<!-- Click to Load -->
 	<div id="click">
-		<h4 ng-click="onSubmit()" id="clicktext">Click me to see pitties!</h4>
-		<img ng-click="onSubmit()" src="images/edthepit.jpg" id="loadimage">
+		<h4 ng-click="onSubmit()" class="clickarea" id="clicktext">Click me to see pitties!</h4>
+		<img ng-click="onSubmit()" src="images/edthepit.jpg" class="clickarea" id="loadimage">
 	</div>
 
 	<!-- USER INPUT -->
@@ -24,9 +24,9 @@
 	</form> -->
 
 	<!-- FEEDBACK AFTER SUBMIT -->
-	<p ng-show="feedback" class="input" id="feedback">We found {{ numRes }} results for {{ displayText }}.</p>
+<!-- 	<p ng-show="feedback" class="input" id="feedback">We found {{ numRes }} results for {{ displayText }}.</p>
 	<p ng-show="errorMessage" class="input">Sorry, there was an error processing your request.</p>
-
+ -->
 	<!-- IMAGES -->
 	<div id="images">
 		<div ng-repeat="image in images">
