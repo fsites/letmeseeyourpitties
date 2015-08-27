@@ -35,8 +35,8 @@
 
 		<!-- EXECUTE onScroll() when user nears end of page -->
 			<div infinite-scroll="onScroll()" infinite-scroll-distance="2">
-				<div ng-repeat="newImage in newImages" class="floated">
-					<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
+				<div ng-repeat="image in images">
+					<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
 				</div>
 			</div>
 

@@ -21,14 +21,12 @@ angular.module('instagramApp', ['infinite-scroll'])
 				method: 'JSONP',
 			 	params: config,
 			})
-			.success(function(results, url) {
+			.success(function(results) {
 				$scope.images = results.data;
-				$scope.loadStatus = 1;
-				console.log($scope.images);
-				$scope.newUrl = url.pagination.next_url; //not working
+				$scope.newUrl = data.pagination.next_url; //not working
 			})
 			.error(function() {
-				console.log("request failed.");
+				alert("Request failed, try refreshing the page for more pitties.");
 			});
 		};
 
@@ -39,12 +37,12 @@ angular.module('instagramApp', ['infinite-scroll'])
 			$http({
 				url: $scope.newUrl,  //not working, not sure how to access pagination url
 				method: 'JSONP',
-		 		params: $scope.config,
+		 		params: config,
 		 	})
-			.success(function(newResults) { //request unsuccessful
-				$scope.newImages = newResults.data; //not working
+			.success(function(results) { //request unsuccessful
+				$scope.images = results.data; //not working, sometimes loads 60 images
 				console.log("more results request success");
-				console.log($scope.newImages);
+				console.log($scope.images);
 			})
 			.error(function() {
 				console.log("failed to load more images");
