@@ -14,19 +14,24 @@
 	<body ng-controller="MyCtrl">
 
 	<!-- Main Content -->
-	<div id="main-content"
-		<!-- Click to Load -->
-		<div id="click">
-			<h4 ng-click="onSubmit()" class="click-area" id="click-text">Click me to see some pitties!</h4>
-			<img ng-click="onSubmit()" src="images/edthepit.jpg" class="click-area" id="load-image">
+	<div id="main-content">
+
+		<!-- Initial IMAGES -->
+		<div id="images">
+
+			<div ng-repeat="image in images">
+				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/></a>
+			</div>
+
+		<!-- EXECUTE onScroll() when user nears end of page -->
+			<div infinite-scroll="onScroll()" infinite-scroll-distance="2">
+				<div ng-repeat="newImage in newImages">
+					<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/></a>
+				</div>
+			</div>
+
 		</div>
 
-		<!-- IMAGES -->
-		<div id="images" infinite-scroll='onScroll()' infinite-scroll-distance='2'>
-			<div ng-repeat="image in images">
-				<a href='{{image.link}}' target="_blank"><img ng-src='{{image.images.low_resolution.url}}'/></a>
-			</div>
-		</div>
 	</div>
 
 		

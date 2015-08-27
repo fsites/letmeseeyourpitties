@@ -1,47 +1,56 @@
 angular.module('instagramApp', ['infinite-scroll'])
 	.controller('MyCtrl', function($scope, $http) {
 
-		$scope.subStatus = 0;
-		console.log("subStatus should be 0 and is " + $scope.subStatus);
+		// PARAMETERS CONFIG
+		var url = 'https://api.instagram.com/v1/tags/' + 'pitbullsofinstagram' + '/media/recent';
+		var config = {
+			'client_id': 'fe58bbb1a5724d1395b66b3f3728d11c',
+			'count': 30,
+			'callback': 'JSON_CALLBACK'
+		};
 
-		//Executes on Submit click
-		$scope.onSubmit = function() {
+		//loads initial images
+		initImages();
 
-			var url = 'https://api.instagram.com/v1/tags/' + 'pitbullsofinstagram' + '/media/recent';
+		//Initial request function
+		function initImages() {
 
-			//PARAMETERS
-			var config = {
-				'client_id': 'fe58bbb1a5724d1395b66b3f3728d11c',
-				'count': 30,
-				'callback': 'JSON_CALLBACK'
-			};
-
-			// REQUEST
+			// INITIAL REQUEST
 			$http({
 				url: url,
 				method: 'JSONP',
 			 	params: config,
 			})
-			.success(function(result) {
-				$scope.images = result.data;
-				$scope.subStatus = 1;
-				console.log("Request success, subStatus should be 1 and is " + $scope.subStatus);
-
+			.success(function(results, url) {
+				$scope.images = results.data;
+				$scope.loadStatus = 1;
+				console.log($scope.images);
+				$scope.newUrl = url.pagination.next_url; //not working
 			})
 			.error(function() {
 				console.log("request failed.");
 			});
 		};
 
-		//Infinite scroll function, checks subStatus to see if onSubmit() has run
+		//Executes when user nears end of page
 		$scope.onScroll = function() {
-			if ($scope.subStatus = 1) {
-				console.log("Auto scroll on, subStatus should be 1 and is " + $scope.subStatus)
-			}
-			else {
-				console.log("Auto scroll is off, subStatus should be 0 and is " + $scope.subStatus);
-			};
-		}
+
+			// HTTP REQUEST
+			$http({
+				url: $scope.newUrl,  //not working, not sure how to access pagination url
+				method: 'JSONP',
+		 		params: $scope.config,
+		 	})
+			.success(function(newResults) { //request unsuccessful
+				$scope.newImages = newResults.data; //not working
+				console.log("more results request success");
+				console.log($scope.newImages);
+			})
+			.error(function() {
+				console.log("failed to load more images");
+			});
+		};
+
 	});
 
 
