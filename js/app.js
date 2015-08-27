@@ -21,9 +21,10 @@ angular.module('instagramApp', ['infinite-scroll'])
 				method: 'JSONP',
 			 	params: config,
 			})
-			.success(function(results) {
+			.success(function(results, data) {
 				$scope.images = results.data;
 				$scope.newUrl = data.pagination.next_url; //not working
+				console.log('newUrl is ' + $scope.newUrl);
 			})
 			.error(function() {
 				alert("Request failed, try refreshing the page for more pitties.");
@@ -33,6 +34,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 		//Executes when user nears end of page
 		$scope.onScroll = function() {
 
+			console.log('click works');
 			// HTTP REQUEST
 			$http({
 				url: $scope.newUrl,  //not working, not sure how to access pagination url
