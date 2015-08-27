@@ -15,10 +15,12 @@
 
 		<div id="nav">
 			<ul id="nav-links">
-				<li><a class="nav-link" target="_blank" href="http://www.pitbulllovers.com/toys-for-your-american-pit-bull-terrier.html">Pittie Toys</a></li>
-				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/training-resources">Training Tips</a></li>
+				<li><a class="nav-link" target="_blank" href="https://instagram.com/edthepit/">@EdThePit</a></li>
+				<li><a class="nav-link" target="_blank" href="http://www.pitbulllovers.com/toys-for-your-american-pit-bull-terrier.html">Toys</a></li>
+				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/training-resources">Tips</a></li>
 				<li><a class="nav-link" target="_blank" href="http://www.teampitafull.org/Myth_Vs_Fact.html">Fact vs. Myth</a></li>
 				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/">BadRap</a></li>
+
 			</ul>
 			
 		</div>
@@ -30,13 +32,13 @@
 			<div id="images">
 
 				<div ng-repeat="image in images">
-					<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/></a>
+					<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
 				</div>
 
 			<!-- EXECUTE onScroll() when user nears end of page -->
 				<div infinite-scroll="onScroll()" infinite-scroll-distance="2">
 					<div ng-repeat="newImage in newImages">
-						<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/></a>
+						<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
 					</div>
 				</div>
 

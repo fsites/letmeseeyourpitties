@@ -17,9 +17,12 @@ body {
 #nav-links {
 	list-style-type: none;
 	text-align: center;
-	display: inline;
 }
 
+li {
+	display: inline;
+	margin: auto 10px;
+}
 
 .nav-link {
 	color: #f4f4f8;	
@@ -37,6 +40,21 @@ body {
 #main-content {
 	width: 100%;
 	min-width: 320;
-	max-width: 720px;
 	margin: 0 auto;
+	padding-top: 10px;
+	display: inline;
+}
+
+.images {
+	height: 316px;
+	width: 316px;
+	margin: 0;
+	padding: 0;
+	border: 2px solid transparent;
+	transition: border-radius .15s ease;
+}
+
+.images:hover {
+	border: 2px solid #2ab7ca;
+	border-radius: 50%;
 }
