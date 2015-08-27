@@ -32,8 +32,6 @@ li {
 	color: #f4f4f8;	
 	text-decoration: none;
 	font-family: 'Gloria Hallelujah';
-	transition: border-bottom .5s ease;
-	transition: color .25s ease-in;
 }
 
 .nav-link:hover {
@@ -76,13 +74,22 @@ li {
 
 /*MEDIA QUERIES*/
 
+
+/*Very Large Screens*/
+@media (min-width: 1400px) {
+	.images {
+		width: 10%;
+	}
+}
+
+/*Mid Size Screens*/
 @media (min-width: 501px) and (max-width: 720px) {
 	.images {
 		width: 33.333333333%;
 	}
 }
 
-
+/*Mobile Screens*/
 @media (max-width: 500px) {
 	#nav {
 		height: 40px;
