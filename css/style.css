@@ -11,12 +11,16 @@ body {
 	height: 60px;
 	background-color: #2ab7ca;
 	position: fixed;
-	margin: 0 0 20px 0;
+	margin: 0;
+	display: block;
+	z-index: 1;
 }
 
 #nav-links {
+	font-size: 1em;
 	list-style-type: none;
 	text-align: center;
+	padding: 0;
 }
 
 li {
@@ -40,15 +44,18 @@ li {
 #main-content {
 	width: 100%;
 	min-width: 320;
-	margin: 0 auto;
-	padding-top: 10px;
-	display: inline;
+	margin: 0;
+	position: relative;
+	top: 60px;
+	z-index: 0;
 }
 
+
 .images {
-	height: 316px;
-	width: 316px;
-	margin: 0;
+	float: left;
+	width: 20%;
+	min-width: 40px;
+	margin: -2px;
 	padding: 0;
 	border: 2px solid transparent;
 	transition: border-radius .15s ease;
@@ -57,4 +64,23 @@ li {
 .images:hover {
 	border: 2px solid #2ab7ca;
 	border-radius: 50%;
+}
+
+
+/*MEDIA QUERIES*/
+@media (max-width: 500px) {
+	.images {
+		border: none;
+		width: 50%;
+	}
+
+	.images:hover {
+		border: none;
+		border-radius: 0;
+	}
+
+	#nav-links {
+		text-align: left;
+		font-size: .5em;
+	}
 }
