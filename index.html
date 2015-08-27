@@ -13,26 +13,33 @@
 
 	<body ng-controller="MyCtrl">
 
-	<!-- Main Content -->
-	<div id="main-content">
+		<div id="nav">
+			<ul id="nav-links">
+				<li></li>
+			</ul>
+			
+		</div>
 
-		<!-- Initial IMAGES -->
-		<div id="images">
+		<!-- Main Content -->
+		<div id="main-content">
 
-			<div ng-repeat="image in images">
-				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/></a>
-			</div>
+			<!-- Initial IMAGES -->
+			<div id="images">
 
-		<!-- EXECUTE onScroll() when user nears end of page -->
-			<div infinite-scroll="onScroll()" infinite-scroll-distance="2">
-				<div ng-repeat="newImage in newImages">
-					<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/></a>
+				<div ng-repeat="image in images">
+					<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/></a>
 				</div>
+
+			<!-- EXECUTE onScroll() when user nears end of page -->
+				<div infinite-scroll="onScroll()" infinite-scroll-distance="2">
+					<div ng-repeat="newImage in newImages">
+						<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/></a>
+					</div>
+				</div>
+
 			</div>
 
 		</div>
-
-	</div>
 
 		
 	</body>
