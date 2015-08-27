@@ -31,12 +31,19 @@ li {
 .nav-link {
 	color: #f4f4f8;	
 	text-decoration: none;
-	font-family: "Lucida Sans Unicode";
+	font-family: 'Gloria Hallelujah';
+	transition: border-bottom .5s ease;
+	transition: color .25s ease-in;
 }
 
 .nav-link:hover {
 	border-bottom: 2px solid #FE4A49;
 	color: #fed766;
+}
+
+/*ALTERNATIVE TEXT FOR MOBILE*/
+#mobile-text {
+	display: none;
 }
 
 /*MAIN CONTENT*/
@@ -68,7 +75,23 @@ li {
 
 
 /*MEDIA QUERIES*/
+
+@media (min-width: 501px) and (max-width: 720px) {
+	.images {
+		width: 33.333333333%;
+	}
+}
+
+
 @media (max-width: 500px) {
+	#nav {
+		height: 40px;
+	}
+
+	#main-content {
+		top: 40px;
+	}
+
 	.images {
 		border: none;
 		width: 50%;
@@ -80,7 +103,14 @@ li {
 	}
 
 	#nav-links {
-		text-align: left;
-		font-size: .5em;
+		display: none;
+	}
+
+	#mobile-text {
+		display: block;
+		font-family: 'Gloria Hallelujah';
+		text-align: center;
+		color: #fed766;
+		margin: 0;
 	}
 }
