@@ -73,7 +73,7 @@ li {
 /*MEDIA QUERIES*/
 
 /*Very Large Screens*/
-@media (min-width: 1400px) {
+@media (min-width: 1500px) {
 	.images {
 		width: 10%;
 	}
@@ -118,4 +118,8 @@ li {
 		color: #fed766;
 		margin: 0;
 	}
+}
+
+#but {
+	float: right;
 }

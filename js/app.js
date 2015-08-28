@@ -2,7 +2,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 	.controller('MyCtrl', function($scope, $http) {
 
 		// PARAMETERS CONFIG
-		var url = 'https://api.instagram.com/v1/tags/' + 'pitbullsofinstagram' + '/media/recent';
+		var url = 'https://api.instagram.com/v1/tags/pitbullsofinstagram/media/recent';
 		var config = {
 			'client_id': 'fe58bbb1a5724d1395b66b3f3728d11c',
 			'count': 30,
@@ -23,7 +23,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			})
 			.success(function(results, data) {
 				$scope.images = results.data;
-				$scope.newUrl = data.pagination.next_url; //not working
+				$scope.newUrl = results.pagination.next_url; //not working
 				console.log('newUrl is ' + $scope.newUrl);
 			})
 			.error(function() {
@@ -37,14 +37,15 @@ angular.module('instagramApp', ['infinite-scroll'])
 			console.log('click works');
 			// HTTP REQUEST
 			$http({
-				url: $scope.newUrl,  //not working, not sure how to access pagination url
+				url: $scope.newUrl,  
 				method: 'JSONP',
 		 		params: config,
 		 	})
-			.success(function(results) { //request unsuccessful
-				$scope.images = results.data; //not working, sometimes loads 60 images
+			.success(function(newResults, data) { 
+				$scope.newImages = newResults.data;
+				$scope.newUrl = newResults.pagination.next_url;
 				console.log("more results request success");
-				console.log($scope.images);
+				console.log($scope.newImages);
 			})
 			.error(function() {
 				console.log("failed to load more images");
