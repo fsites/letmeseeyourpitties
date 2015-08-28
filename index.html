@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="instagramApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Let me see your pitties</title>
+		<link rel="stylesheet" href="css/style.css">
+		<link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/infinite-scroll.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+	</head>
+
+	<body ng-controller="MyCtrl">
+
+		<div id="nav">
+			<ul id="nav-links">
+				<li><a class="nav-link" target="_blank" href="https://instagram.com/edthepit/">@EdThePit</a></li>
+				<li><a class="nav-link" target="_blank" href="http://www.pitbulllovers.com/toys-for-your-american-pit-bull-terrier.html">Toys</a></li>
+				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/training-resources">Tips</a></li>
+				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/">BadRap</a></li>
+			</ul>
+			<h2 id="mobile-text">Let Me See Your Pitties<h2>
+		</div>
+
+		<!-- Main Content -->
+		<div id="main-content">
+
+			<!-- Initial IMAGES -->
+			<div ng-repeat="image in images">
+				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
+			</div>
+
+			<div infinite-scroll="onScroll()" infinite-scroll-distance="1">
+				<div ng-repeat="newImage in newImages">
+					<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
+				</div>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
