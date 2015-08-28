@@ -19,7 +19,6 @@
 				<li><a class="nav-link" target="_blank" href="https://instagram.com/edthepit/">@EdThePit</a></li>
 				<li><a class="nav-link" target="_blank" href="http://www.pitbulllovers.com/toys-for-your-american-pit-bull-terrier.html">Toys</a></li>
 				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/training-resources">Tips</a></li>
-				<li><a class="nav-link" target="_blank" href="http://www.teampitafull.org/Myth_Vs_Fact.html">Fact vs. Myth</a></li>
 				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/">BadRap</a></li>
 			</ul>
 			<h2 id="mobile-text">Let Me See Your Pitties<h2>
@@ -33,13 +32,15 @@
 				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
 			</div>
 
+		<div infinite-scroll="onScroll()" infinite-scroll-distance="1">
 			<div ng-repeat="newImage in newImages">
 				<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
 			</div>
+		<div>
 
 
 		<!-- EXECUTE onScroll() when user nears end of page -->
-		<button type="button" id="but" ng-click="onScroll()" value="Load More">Load More</button>
+<!-- 		<button type="button" id="but" ng-click="onScroll()" value="Load More">Load More</button> -->
 
 		</div>
 

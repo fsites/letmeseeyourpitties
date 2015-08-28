@@ -33,8 +33,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 
 		//Executes when user nears end of page
 		$scope.onScroll = function() {
-
-			console.log('click works');
+			
 			// HTTP REQUEST
 			$http({
 				url: $scope.newUrl,  
@@ -45,8 +44,6 @@ angular.module('instagramApp', ['infinite-scroll'])
 				$scope.newImages = results.data;
 				$scope.newUrl = results.pagination.next_url;
 				console.log("more results request success");
-				console.log($scope.newImages);
-				console.log("new url is " + $scope.newUrl)
 			})
 			.error(function() {
 				console.log("failed to load more images");
