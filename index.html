@@ -32,18 +32,13 @@
 				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
 			</div>
 
-		<div infinite-scroll="onScroll()" infinite-scroll-distance="1">
-			<div ng-repeat="newImage in newImages">
-				<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
+			<div infinite-scroll="onScroll()" infinite-scroll-distance="1">
+				<div ng-repeat="newImage in newImages">
+					<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
+				</div>
 			</div>
-		<div>
-
-
-		<!-- EXECUTE onScroll() when user nears end of page -->
-<!-- 		<button type="button" id="but" ng-click="onScroll()" value="Load More">Load More</button> -->
-
+			
 		</div>
-
 		
 	</body>
 </html>
