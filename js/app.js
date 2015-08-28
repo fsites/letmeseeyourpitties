@@ -41,11 +41,12 @@ angular.module('instagramApp', ['infinite-scroll'])
 				method: 'JSONP',
 		 		params: config,
 		 	})
-			.success(function(newResults, data) { 
-				$scope.newImages = newResults.data;
-				$scope.newUrl = newResults.pagination.next_url;
+			.success(function(results, data) { 
+				$scope.newImages = results.data;
+				$scope.newUrl = results.pagination.next_url;
 				console.log("more results request success");
 				console.log($scope.newImages);
+				console.log("new url is " + $scope.newUrl)
 			})
 			.error(function() {
 				console.log("failed to load more images");
