@@ -41,13 +41,17 @@ angular.module('instagramApp', ['infinite-scroll'])
 		 		params: config,
 		 	})
 			.success(function(results, data) {
-				$scope.newImages = []; 
-				$scope.results = results.data
-				$scope.pushed = function() {
+				$scope.results = results.data;
+				pushMore();
+				$scope.pushMore = function() {
+					$scope.newImages = [];
 					$scope.newImages.push($scope.results);
-				}
+					return $scope.newImages;
+					console.log($scope.newImages);
+				};
 				$scope.newUrl = results.pagination.next_url;
-				console.log($scope.results);
+				// console.log("Data objects are " + $scope.results);
+				// console.log("appended images are " + $scope.newImages);
 			})
 			.error(function() {
 				console.log("failed to load more images");
