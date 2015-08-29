@@ -51,6 +51,10 @@ li {
 	position: relative;
 	top: 60px;
 	z-index: 0;
+<<<<<<< HEAD
+=======
+	text-align: center;
+>>>>>>> master
 }
 
 
@@ -69,6 +73,30 @@ li {
 	border-radius: 50%;
 }
 
+<<<<<<< HEAD
+=======
+button {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	font-size: 4em;
+	margin: 25px auto 40px auto;
+	background-color: #2ab7ca;
+	border: 5px solid #FE4A49;
+	color: #f4f4f8;
+}
+
+button:hover {
+	background-color: #FE4A49;
+	border: 5px solid #2ab7ca;
+	color: #f4f4f8;
+	cursor: pointer;
+}
+
+button:focus {
+	outline: 0;
+}
+>>>>>>> master
 
 /*MEDIA QUERIES*/
 
@@ -118,8 +146,11 @@ li {
 		color: #fed766;
 		margin: 0;
 	}
+<<<<<<< HEAD
 }
 
 #but {
 	float: right;
+=======
+>>>>>>> master
 }
