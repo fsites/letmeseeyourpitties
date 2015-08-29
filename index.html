@@ -6,23 +6,12 @@
 		<title>Let me see your pitties</title>
 		<link rel="stylesheet" href="css/style.css">
 		<link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
-		<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
 		<script type="text/javascript" src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/infinite-scroll.js"></script>
-=======
-		<script type="text/javascript" src="js/angular.min.js"></script>
->>>>>>> master
 		<script type="text/javascript" src="js/app.js"></script>
 	</head>
 
 	<body ng-controller="MyCtrl">
-<<<<<<< HEAD
 
-=======
-		
-	<!-- NAV BAR -->
->>>>>>> master
 		<div id="nav">
 			<ul id="nav-links">
 				<li><a class="nav-link" target="_blank" href="https://instagram.com/edthepit/">@EdThePit</a></li>
@@ -30,18 +19,10 @@
 				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/training-resources">Tips</a></li>
 				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/">BadRap</a></li>
 			</ul>
-<<<<<<< HEAD
 			<h2 id="mobile-text">Let Me See Your Pitties<h2>
 		</div>
 
 		<!-- Main Content -->
-=======
-			<!-- Hidden unless on mobile -->
-			<h2 id="mobile-text">Let Me See Your Pitties<h2>
-		</div>
-
-	<!-- MAIN CONTENT -->
->>>>>>> master
 		<div id="main-content">
 
 			<!-- Initial IMAGES -->
@@ -49,22 +30,13 @@
 				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
 			</div>
 
-<<<<<<< HEAD
-			<div infinite-scroll="onScroll()" infinite-scroll-distance="1">
-				<div ng-repeat="newImage in newImages">
-					<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
-				</div>
-			</div>
-			
-=======
-			<!-- More images -->
 			<div ng-repeat="newImage in newImages">
 				<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
 			</div>
 
 			<button ng-click="onScroll()" ng-show="status">&#x290B;</button>
-	
->>>>>>> master
+
+			
 		</div>
 		
 	</body>
