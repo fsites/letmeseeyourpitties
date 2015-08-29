@@ -8,6 +8,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			'count': 30,
 			'callback': 'JSON_CALLBACK'
 		};
+		$scope.newImages = [];
 
 		//loads initial images
 		initImages();
@@ -57,12 +58,11 @@ angular.module('instagramApp', ['infinite-scroll'])
 		//Executes when onScroll() successfully requests more images
 		function pushMore() {
 			console.log("pushMore() executed");
-			$scope.newImages = [];
 			for (i = 0; i < $scope.moreResults.length; i ++) {
 				$scope.newImages.push($scope.moreResults[i]);
 			}
+			console.log("pushMore() thinks newImages are" + $scope.newImages);
 			return $scope.newImages;
-			console.log("pushMore thinks newImages are" + $scope.newImages);
 		};
 
 	});
