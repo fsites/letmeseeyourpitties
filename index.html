@@ -32,11 +32,12 @@
 				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
 			</div>
 
-			<div infinite-scroll="onScroll()" infinite-scroll-distance="1">
-				<div ng-repeat="newImage in newImages">
-					<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
-				</div>
+			<div ng-repeat="newImage in newImages">
+				<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
 			</div>
+
+			<button ng-click="onScroll()">&#10153;</button>
+
 			
 		</div>
 		
