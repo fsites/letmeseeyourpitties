@@ -11,7 +11,8 @@
 	</head>
 
 	<body ng-controller="MyCtrl">
-
+		
+	<!-- NAV BAR -->
 		<div id="nav">
 			<ul id="nav-links">
 				<li><a class="nav-link" target="_blank" href="https://instagram.com/edthepit/">@EdThePit</a></li>
@@ -19,10 +20,11 @@
 				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/training-resources">Tips</a></li>
 				<li><a class="nav-link" target="_blank" href="http://www.badrap.org/">BadRap</a></li>
 			</ul>
+			<!-- Hidden unless on mobile -->
 			<h2 id="mobile-text">Let Me See Your Pitties<h2>
 		</div>
 
-		<!-- Main Content -->
+	<!-- MAIN CONTENT -->
 		<div id="main-content">
 
 			<!-- Initial IMAGES -->
@@ -30,13 +32,13 @@
 				<a href='{{image.link}}' target="_blank"><img ng-src="{{image.images.low_resolution.url}}"/ class="images"></a>
 			</div>
 
+			<!-- More images -->
 			<div ng-repeat="newImage in newImages">
 				<a href='{{newImage.link}}' target="_blank"><img ng-src="{{newImage.images.low_resolution.url}}"/ class="images"></a>
 			</div>
 
 			<button ng-click="onScroll()" ng-show="status">&#x290B;</button>
-
-			
+	
 		</div>
 		
 	</body>
