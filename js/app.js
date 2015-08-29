@@ -23,7 +23,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			})
 			.success(function(results, data) {
 				$scope.images = results.data;
-				$scope.newUrl = results.pagination.next_url; //not working
+				$scope.newUrl = results.pagination.next_url;
 				console.log('newUrl is ' + $scope.newUrl);
 			})
 			.error(function() {
@@ -34,28 +34,35 @@ angular.module('instagramApp', ['infinite-scroll'])
 		//Executes when user nears end of page
 		$scope.onScroll = function() {
 			
-			// HTTP REQUEST
+			console.log('onScroll() executed');
+
+			//REQUEST
 			$http({
 				url: $scope.newUrl,  
 				method: 'JSONP',
 		 		params: config,
 		 	})
 			.success(function(results, data) {
-				$scope.results = results.data;
+				console.log('load more request success');
+				$scope.moreResults = results.data;
 				pushMore();
-				$scope.pushMore = function() {
-					$scope.newImages = [];
-					$scope.newImages.push($scope.results);
-					return $scope.newImages;
-					console.log($scope.newImages);
-				};
 				$scope.newUrl = results.pagination.next_url;
-				// console.log("Data objects are " + $scope.results);
-				// console.log("appended images are " + $scope.newImages);
+				console.log("newImages are" + $scope.newImages);
 			})
 			.error(function() {
 				console.log("failed to load more images");
 			});
+		};
+
+		//Executes when onScroll() successfully requests more images
+		function pushMore() {
+			console.log("pushMore() executed");
+			$scope.newImages = [];
+			for (i = 0; i < $scope.moreResults.length; i ++) {
+				$scope.newImages.push($scope.moreResults[i]);
+			}
+			return $scope.newImages;
+			console.log("pushMore thinks newImages are" + $scope.newImages);
 		};
 
 	});
