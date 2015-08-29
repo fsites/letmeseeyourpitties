@@ -1,7 +1,7 @@
-angular.module('instagramApp', ['infinite-scroll'])
+angular.module('instagramApp', [])
 	.controller('MyCtrl', function($scope, $http) {
 
-		// PARAMETERS CONFIG
+	// PARAMETERS CONFIG
 		var url = 'https://api.instagram.com/v1/tags/pitbullsofinstagram/media/recent';
 		var config = {
 			'client_id': 'fe58bbb1a5724d1395b66b3f3728d11c',
@@ -9,15 +9,19 @@ angular.module('instagramApp', ['infinite-scroll'])
 			'callback': 'JSON_CALLBACK'
 		};
 
-		//Empty array for new images to be pushed to
-		$scope.newImages = []; 
-
-		//loads initial images
+	//Loads initial images
 		initImages();
 
-		// INITIAL REQUEST
-		function initImages() {
+	//Button show status
+		$scope.status = false;
 
+	//Empty array for new images to be pushed to
+		$scope.newImages = []; 
+
+
+
+	// INITIAL REQUEST
+		function initImages() {
 
 			$http({
 				url: url,
@@ -27,6 +31,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			.success(function(results, data) {
 				$scope.images = results.data;
 				$scope.newUrl = results.pagination.next_url;
+				$scope.status = true;
 				console.log('newUrl is ' + $scope.newUrl);
 			})
 			.error(function() {
@@ -34,7 +39,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			});
 		};
 
-		//Executes when user nears end of page
+	//Executes on click, eventually will work as infinite scroll
 		$scope.onScroll = function() {
 			
 			console.log('onScroll() executed');
@@ -56,7 +61,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			});
 		};
 
-		//Executes when onScroll() successfully requests more images
+	//Executes when onScroll() successfully requests more images
 		function pushMore() {
 			console.log("pushMore() executed");
 			for (i = 0; i < $scope.moreResults.length; i ++) {
