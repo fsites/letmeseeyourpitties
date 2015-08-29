@@ -1,22 +1,20 @@
 angular.module('instagramApp', ['infinite-scroll'])
 	.controller('MyCtrl', function($scope, $http) {
 
-		// PARAMETERS CONFIG
+//Loads initial images
+		initImages();
+
+// PARAMETERS CONFIG
 		var url = 'https://api.instagram.com/v1/tags/pitbullsofinstagram/media/recent';
 		var config = {
 			'client_id': 'fe58bbb1a5724d1395b66b3f3728d11c',
 			'count': 30,
 			'callback': 'JSON_CALLBACK'
 		};
-		$scope.newImages = [];
 
-		//loads initial images
-		initImages();
-
-		//Initial request function
+// INITIAL REQUEST
 		function initImages() {
 
-			// INITIAL REQUEST
 			$http({
 				url: url,
 				method: 'JSONP',
@@ -28,9 +26,15 @@ angular.module('instagramApp', ['infinite-scroll'])
 				console.log('newUrl is ' + $scope.newUrl);
 			})
 			.error(function() {
-				alert("Request failed, try refreshing the page for more pitties.");
+				alert("Request failed, try refreshing to see some dog.");
 			});
 		};
+
+
+// MORE IMAGE FUNCTIONALITY
+
+		//Empty array for new images to be pushed to
+		$scope.newImages = [];
 
 		//Executes when user nears end of page
 		$scope.onScroll = function() {
@@ -48,7 +52,6 @@ angular.module('instagramApp', ['infinite-scroll'])
 				$scope.moreResults = results.data;
 				pushMore();
 				$scope.newUrl = results.pagination.next_url;
-				console.log("newImages are" + $scope.newImages);
 			})
 			.error(function() {
 				console.log("failed to load more images");
@@ -61,8 +64,7 @@ angular.module('instagramApp', ['infinite-scroll'])
 			for (i = 0; i < $scope.moreResults.length; i ++) {
 				$scope.newImages.push($scope.moreResults[i]);
 			}
-			console.log("pushMore() thinks newImages are" + $scope.newImages);
-			return $scope.newImages;
+			console.log("Current image array is " + $scope.newImages);
 		};
 
 	});
